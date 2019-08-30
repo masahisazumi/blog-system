@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render :partial => 'shared/nav' %>
+
+    <main role="main" class="container">
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+
+      <%= yield %>
+
+    </main><!-- /.container -->
   </body>
 </html>
