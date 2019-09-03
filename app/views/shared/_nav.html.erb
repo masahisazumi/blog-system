@@ -1,38 +1,40 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <% if (user_signed_in?) %>
-      <%= link_to "Dashboard", posts_path, class: "top-link" %>
-    <% else %>
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <% end %>
+<% if (user_signed_in?) %>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <% if (user_signed_in?) %>
+        <%= link_to "Dashboard", posts_path, class: "top-link" %>
+      <% else %>
+      <a class="navbar-brand" href="/">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav ml-auto">
-        <% if (!user_signed_in?) %>
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        <% else %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.email %></a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <%= link_to "新規投稿", new_post_path, class: "dropdown-item" %>
-              <%= link_to "編集", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ml-auto">
+          <% if (!user_signed_in?) %>
+            <li class="nav-item active">
+              <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          <% else %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.email %></a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <%= link_to "新規投稿", new_post_path, class: "dropdown-item" %>
+                <%= link_to "編集", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+<% end %>
