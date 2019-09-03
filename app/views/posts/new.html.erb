@@ -1,0 +1,22 @@
+<div class="form-signin">
+  <div class="mb-4">
+    <h2 class="text-center">新規投稿</h2>
+    <%= form_with model: @post, local:true do |form| %>
+      <div class="form-label-group">
+        <%= form.label :title %>　<br />
+        <%= form.text_field :title, class: "form-control"  %>
+      </div>
+
+      <div class="form-label-group">
+        <%= form.label :content %><br />
+        <%= form.rich_text_area :content %>
+      </div>
+
+      <hr>
+
+      <div class="form-label-group">
+        <%= form.submit "登録", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>
