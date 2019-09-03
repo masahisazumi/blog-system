@@ -21,3 +21,5 @@ window.Noty = require('noty')
 import 'bootstrap'
 import '@fortawesome/fontawesome-free/js/all'
 import '../src/application.scss'
+require("trix")
+require("@rails/actiontext")
