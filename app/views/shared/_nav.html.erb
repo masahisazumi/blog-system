@@ -22,6 +22,7 @@
             <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.email %></a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <%= link_to "新規投稿", new_post_path, class: "dropdown-item" %>
               <%= link_to "編集", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
