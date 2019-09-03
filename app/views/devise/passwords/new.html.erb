@@ -1,0 +1,21 @@
+<div class="form-signin">
+  <div class="mb-4">
+    <h2>パスワード リセット</h2>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-label-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
+      </div>
+
+      <hr>
+
+      <div class="actions">
+        <%= f.submit "リセットパスワード", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
