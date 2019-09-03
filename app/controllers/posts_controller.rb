@@ -21,6 +21,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    if @post.draft?
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -44,13 +47,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def toggle_status
+    @post.toggle_status!
+    redirect_to  posts_path, notice: '変更しました'
+  end
+
   private
 
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find(params[:id] || params[:post_id])
     end
 
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :status)
     end
 end

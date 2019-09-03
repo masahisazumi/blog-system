@@ -8,11 +8,14 @@
         <div class="card-body">
           <% @posts.each do |post| %>
             <div class="row my-3">
-              <div class="col-md-9">
+              <div class="col-md-7">
                 <h5><%= post.title %></h5>
               </div>
+              <div class="col-md-2">
+                <%= link_to post.status, post_toggle_status_path(post), method: :patch, class: "btn btn-outline-warning" %>
+              </div>
               <div class="col-md-3">
-                <%= link_to "表示", post_path(post), class: "btn btn-outline-primary float-left" %>　
+                <%= link_to "表示", post_path(post), class: "btn btn-outline-primary float-left ml-1" %>　
                 <%= link_to "編集", edit_post_path(post), class: "btn btn-outline-success float-left ml-1" %>
                 <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger float-left ml-1" %>
               </div>
