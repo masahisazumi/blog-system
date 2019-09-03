@@ -14,5 +14,4 @@ class Post < ApplicationRecord
       draft!
     end
   end
-
 end
