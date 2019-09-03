@@ -3,13 +3,13 @@
     <div class="col-md-12 mx-auto">
       <div class="card">
         <div class="card-header">
-          記事一覧
+          <h4>記事一覧</h4>
         </div>
         <div class="card-body">
           <% @posts.each do |post| %>
-            <div class="row">
+            <div class="row my-3">
               <div class="col-md-9">
-                <h4><%= post.title %></h4>
+                <h5><%= post.title %></h5>
               </div>
               <div class="col-md-3">
                 <%= link_to "表示", post_path(post), class: "btn btn-outline-primary float-left" %>　
@@ -17,7 +17,6 @@
                 <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger float-left ml-1" %>
               </div>
             </div>
-            <hr>
           <% end %>
         </div>
       </div>
