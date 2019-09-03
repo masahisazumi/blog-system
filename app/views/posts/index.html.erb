@@ -1,2 +1,26 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          記事一覧
+        </div>
+        <div class="card-body">
+          <% @posts.each do |post| %>
+            <div class="row">
+              <div class="col-md-9">
+                <h4><%= post.title %></h4>
+              </div>
+              <div class="col-md-3">
+                <%= link_to "表示", post_path(post), class: "btn btn-outline-primary float-left" %>　
+                <%= link_to "編集", edit_post_path(post), class: "btn btn-outline-success float-left ml-1" %>
+                <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger float-left ml-1" %>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
